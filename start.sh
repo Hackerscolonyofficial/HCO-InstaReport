@@ -1,20 +1,27 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/bin/bash
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
 
 clear
-echo -e "\e[91m"
-figlet "HCO-InstaReport"
-echo -e "\e[0m"
-echo
-echo -e "\e[92mThis tool is not free. Redirecting to YouTube in 10s...\e[0m"
-sleep 10
-termux-open-url https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya
-read -p "Press ENTER to continue..."
+echo -e "${YELLOW}[!] This tool is not free. Redirecting to YouTube...${NC}"
+sleep 3
+xdg-open "https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya"
 
+echo
+read -p "$(echo -e ${CYAN}After subscribing, press ENTER to continue...${NC})"
+
+# Clear and show box
 clear
-echo -e "\e[41m\e[92m"
-figlet "HCO-InstaReport"
-echo -e "\e[0m"
-echo -e "\e[1;91mDeveloped by Azhar | Hackers Colony Official\e[0m"
+echo
+echo -e "${RED}╔════════════════════════════════════════════╗"
+echo -e "${RED}║            ${GREEN}HCO InstaReport by Azhar${RED}            ║"
+echo -e "${RED}╚════════════════════════════════════════════╝${NC}"
 echo
 
+# Run main tool
 python main.py
