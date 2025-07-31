@@ -1,0 +1,4 @@
+SocksPort 9050
+Log notice file /data/data/com.termux/files/usr/var/log/tor/notices.log
+ControlPort 9051
+CookieAuthentication 1
