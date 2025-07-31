@@ -1,56 +1,75 @@
 import os
 import time
-from datetime import datetime
-from termcolor import colored
-import instaloader
 
-def redirect_to_youtube():
-    print(colored("\n[!] This tool is not free. Redirecting to YouTube...\n", "yellow"))
-    time.sleep(3)
-    os.system("xdg-open https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya")
-    input(colored("\nAfter subscribing, press ENTER to continue... ", "cyan"))
+# Clear the terminal
+os.system("clear")
 
-def show_banner():
-    os.system("clear")
-    print()
-    red_box_top = "╔" + "═" * 40 + "╗"
-    red_box_bottom = "╚" + "═" * 40 + "╝"
-    print(colored(red_box_top, "red"))
-    print(colored("║" + " " * 12 + colored("HCO InstaReport by Azhar", "green", attrs=["bold"]) + " " * 12 + "║", "red"))
-    print(colored(red_box_bottom, "red"))
-    print()
+# Display HCO License Banner
+print("\033[91m")
+print("╔════════════════════════════════════════════╗")
+print("║      🔒 HCO-INSTAREPORT TOOL               ║")
+print("║  Protected by Hackers Colony License       ║")
+print("║  Unauthorized Copying is Strictly Forbidden║")
+print("╚════════════════════════════════════════════╝")
+print("\033[0m")
+time.sleep(1)
 
-def simulate_report(username):
-    L = instaloader.Instaloader()
-    print(colored("\n[~] Fetching profile info from Instagram...", "cyan"))
-    try:
-        profile = instaloader.Profile.from_username(L.context, username)
-        followers = profile.followers
-        posts = profile.mediacount
-        bio = profile.biography
-        print(colored(f"\n[✓] Profile Found: @{username}", "green"))
-        print(colored(f"Followers: {followers} | Posts: {posts}", "cyan"))
-        print(colored(f"Bio: {bio}", "yellow"))
-        print(colored("\n[✓] Reporting simulation started...", "green"))
-        time.sleep(2)
-        print(colored("[✓] 100 genuine reports submitted!", "green"))
-        log_action(username, True)
-    except Exception as e:
-        print(colored(f"[!] Failed to fetch profile. Reason: {e}", "red"))
-        log_action(username, False)
+# Main Menu Function
+def main_menu():
+    while True:
+        print("\n\033[96m=== HCO-InstaReport Menu ===\033[0m")
+        print("1. Report Instagram Account")
+        print("2. Report Instagram Post")
+        print("3. Report Instagram Story")
+        print("4. Report Instagram Comment")
+        print("5. Exit")
 
-def log_action(username, status):
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    with open("logs.txt", "a") as log_file:
-        log_file.write(f"[{timestamp}] @{username} | Reported: {status}\n")
+        choice = input("\n\033[93m[+] Choose an option (1-5): \033[0m")
 
-def main():
-    redirect_to_youtube()
-    show_banner()
-    
-    print(colored("[+] Tool initialized successfully!", "cyan"))
-    username = input(colored("\nEnter the Instagram username to report: ", "yellow"))
-    simulate_report(username)
+        if choice == '1':
+            report_account()
+        elif choice == '2':
+            report_post()
+        elif choice == '3':
+            report_story()
+        elif choice == '4':
+            report_comment()
+        elif choice == '5':
+            print("\n\033[91m[!] Exiting HCO-InstaReport. Stay ethical.\033[0m")
+            break
+        else:
+            print("\033[91m[!] Invalid choice. Please enter 1-5.\033[0m")
 
+# Simulated Report Functions
+
+def report_account():
+    username = input("\nEnter Instagram username to report: @")
+    reason = input("Reason for report (e.g., fake, spam, harassment): ")
+    print("\033[92m\n[*] Reporting account...\033[0m")
+    time.sleep(2)
+    print(f"\033[92m[✓] Account @{username} reported for '{reason}' (simulation).\033[0m")
+
+def report_post():
+    link = input("\nEnter Instagram post URL: ")
+    reason = input("Reason for report: ")
+    print("\033[92m\n[*] Reporting post...\033[0m")
+    time.sleep(2)
+    print(f"\033[92m[✓] Post {link} reported for '{reason}' (simulation).\033[0m")
+
+def report_story():
+    username = input("\nEnter Instagram username whose story to report: @")
+    reason = input("Reason for report: ")
+    print("\033[92m\n[*] Reporting story...\033[0m")
+    time.sleep(2)
+    print(f"\033[92m[✓] Story from @{username} reported for '{reason}' (simulation).\033[0m")
+
+def report_comment():
+    comment = input("\nEnter Instagram comment text or URL: ")
+    reason = input("Reason for report: ")
+    print("\033[92m\n[*] Reporting comment...\033[0m")
+    time.sleep(2)
+    print(f"\033[92m[✓] Comment '{comment}' reported for '{reason}' (simulation).\033[0m")
+
+# Start the program
 if __name__ == "__main__":
-    main()
+    main_menu()
