@@ -1,105 +1,103 @@
-# ⚫ HCO-InstaReport
-
-**HCO-InstaReport by Azhar**  
-A powerful Termux-based tool to gather publicly available reports on any Instagram username using TOR and export logs easily.
-
----
-
-## 📸 Features
-
-- Username-based Instagram reporting
-- Uses TOR for anonymity
-- Clean CLI interface
-- Auto logs export
-- YouTube subscription check with redirect
-- Fully Termux-compatible
+<h1 align="center">🚨 HCO-INSTAREPORT 🚨</h1>
+<p align="center">
+  <img src="https://img.shields.io/badge/Author-Azhar-red?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Made%20With-Termux-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Hackers%20Colony%20-%20Official-black?style=for-the-badge">
+</p>
 
 ---
 
-## 🚀 Installation
+> ⚠️ **WARNING: ILLEGAL USE OF THIS TOOL IS STRICTLY PROHIBITED.**  
+> This tool is built only for educational and ethical testing purposes under supervision.  
+> Anyone found using this tool for malicious activities will be **permanently banned** and **reported**.  
+> This tool is **LICENSED and PROTECTED**. Any kind of copy, reuse, or reupload is strictly forbidden and punishable.
+
+---
+
+## 🔍 What is HCO-InstaReport?
+
+**HCO-InstaReport** is an educational Termux-based tool created by **Hackers Colony** that simulates Instagram report actions for demo and research use.  
+It does **not harm** any real user or system — strictly for learning cybersecurity ethics.
+
+---
+
+## 📌 YouTube Subscription Required
+
+> 💢 This tool is not free. You must subscribe to our YouTube before use.
+
+When the tool starts, you’ll be redirected to our official channel:
+
+➡️ [Click here to subscribe](https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya)
+
+After subscribing, return and press **Enter** to continue using the tool.
+
+---
+
+## ⚙️ Installation (Termux)
 
 ```bash
-pkg update && pkg upgrade
-pkg install git tor python -y
-git clone https://github.com/YourUsername/HCO-InstaReport
+pkg update && pkg upgrade -y
+pkg install python git -y
+git clone https://github.com/yourusername/HCO-InstaReport
 cd HCO-InstaReport
-pip install -r requirements.txt
-bash start.sh
+python main.py
 ```
 
 ---
 
-## 📦 Requirements
+## ▶️ How to Use
 
-- Python 3
-- Tor installed and working
-- Termux environment
-
----
-
-## 🧠 How it Works
-
-1. Redirects to YouTube for channel subscription
-2. User confirms by pressing ENTER
-3. Tool starts with banner: **HCO Insta Report by Azhar**
-4. User enters Instagram username
-5. Tool fetches report data
-6. Report is exported as a `.txt` log file
+1. Run the script: `python main.py`
+2. You’ll be redirected to YouTube – subscribe.
+3. Press Enter to continue.
+4. Choose from the menu options to simulate report.
 
 ---
 
-## 📁 Folder Structure
+## 🔗 Connect with Hackers Colony
 
-```
-HCO-InstaReport/
-│
-├── start.sh
-├── main.py
-├── insta_report.py
-├── tor_config/
-│   └── torrc
-├── requirements.txt
-└── README.md
-```
+- 🌐 [Website](https://hackerscolonyofficial.blogspot.com)
+- 📺 [YouTube](https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya)
+- 📷 [Instagram](https://www.instagram.com/hackers_colony_official)
+- 💬 [Telegram](https://t.me/hackersColony)
+- 💻 [Discord](https://discord.gg/Xpq9nCGD)
 
 ---
 
-## 📜 Example Output
+## 🛡️ LICENSE - DO NOT COPY ⚠️
 
 ```
-[*] Starting Tor service...
-[*] Connecting to Instagram...
-[+] Target: @username
-[+] Followers: 2.3M
-[+] Following: 1
-[+] Bio: Public Figure | Artist
-[+] Posts: 56
-[✓] Report exported: logs/username_report.txt
+HCO-INSTAREPORT LICENSE
+Copyright (C) 2025 Hackers Colony
+
+This software and its contents are the intellectual property of Hackers Colony. 
+Unauthorized copying, modification, distribution, or reuse of any part of this project, 
+including the source code, layout, name, and methods, is strictly prohibited.
+
+You are NOT allowed to:
+- Copy, redistribute, or share the code or any part of it.
+- Modify or reuse the project in any way.
+- Upload this tool to any public or private repository without written permission.
+- Use the name "Hackers Colony" or "HCO-InstaReport" in your forks or copies.
+
+This tool is provided strictly for **educational and research** purposes by the original authors. 
+We do not support or encourage illegal use.
+
+Any violation of this license will result in appropriate legal action.
+
+🔒 Protected by Hackers Colony  
+📧 Contact: hackerscolonyofficial@gmail.com  
+📌 Official: https://hackerscolonyofficial.blogspot.com
 ```
 
 ---
 
-## 📺 YouTube Subscription Notice
+## 🙏 Credits
 
-> ⚠️ This tool is free but requires a **YouTube subscription** to continue.
-After launching, you will be redirected to:  
-**[Hackers Colony Tech YouTube Channel](https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya)**  
-After subscribing, press `ENTER` to start using the tool.
-
----
-
-## 🧑‍💻 Author
-
-**Code by Azhar**  
-🚩 Instagram: [@hackers_colony_official](https://www.instagram.com/hackers_colony_official)  
-💬 Telegram: [HackersColony](https://t.me/hackersColony)  
-🌐 Website: [HackersColony](https://hackerscolonyofficial.blogspot.com/?m=1)
+- 👨‍💻 **Developed by:** Azhar  
+- 💣 **Organization:** Hackers Colony  
+- 🔐 Powered by: Ethics + Education + Termux
 
 ---
 
-## 📢 Disclaimer
-
-This tool is created strictly for **educational purposes** and **ethical use only**.  
-The author is **not responsible** for any misuse.
-
-> “Hack the planet, but respect the rules.”
+> 💥 *“Code is a weapon. Use it responsibly.” – Hackers Colony*
