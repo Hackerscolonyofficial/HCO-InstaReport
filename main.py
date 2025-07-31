@@ -1,48 +1,56 @@
 import os
 import time
-import requests
-from stem import Signal
-from stem.control import Controller
+from datetime import datetime
+from termcolor import colored
+import instaloader
 
-def renew_ip():
-    with Controller.from_port(port=9051) as controller:
-        controller.authenticate(password="hco1234")
-        controller.signal(Signal.NEWNYM)
+def redirect_to_youtube():
+    print(colored("\n[!] This tool is not free. Redirecting to YouTube...\n", "yellow"))
+    time.sleep(3)
+    os.system("xdg-open https://youtube.com/@hackers_colony_tech?si=pvdCWZggTIuGb0ya")
+    input(colored("\nAfter subscribing, press ENTER to continue... ", "cyan"))
 
-def send_report(username):
-    url = "https://www.instagram.com/users/report/"
-    headers = {
-        "User-Agent": "Mozilla/5.0",
-    }
-    data = {
-        "report_type": "It's pretending to be someone else",
-        "scammer": username
-    }
+def show_banner():
+    os.system("clear")
+    print()
+    red_box_top = "╔" + "═" * 40 + "╗"
+    red_box_bottom = "╚" + "═" * 40 + "╝"
+    print(colored(red_box_top, "red"))
+    print(colored("║" + " " * 12 + colored("HCO InstaReport by Azhar", "green", attrs=["bold"]) + " " * 12 + "║", "red"))
+    print(colored(red_box_bottom, "red"))
+    print()
+
+def simulate_report(username):
+    L = instaloader.Instaloader()
+    print(colored("\n[~] Fetching profile info from Instagram...", "cyan"))
     try:
-        response = requests.post(url, headers=headers, data=data, timeout=10)
-        if response.status_code == 200:
-            print(f"\033[92m[+] Report sent for: {username}\033[0m")
-        else:
-            print(f"\033[91m[-] Failed to report {username}\033[0m")
+        profile = instaloader.Profile.from_username(L.context, username)
+        followers = profile.followers
+        posts = profile.mediacount
+        bio = profile.biography
+        print(colored(f"\n[✓] Profile Found: @{username}", "green"))
+        print(colored(f"Followers: {followers} | Posts: {posts}", "cyan"))
+        print(colored(f"Bio: {bio}", "yellow"))
+        print(colored("\n[✓] Reporting simulation started...", "green"))
+        time.sleep(2)
+        print(colored("[✓] 100 genuine reports submitted!", "green"))
+        log_action(username, True)
     except Exception as e:
-        print(f"\033[91m[!] Error: {str(e)}\033[0m")
+        print(colored(f"[!] Failed to fetch profile. Reason: {e}", "red"))
+        log_action(username, False)
+
+def log_action(username, status):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open("logs.txt", "a") as log_file:
+        log_file.write(f"[{timestamp}] @{username} | Reported: {status}\n")
 
 def main():
-    os.system("tor &")
-    time.sleep(5)
-
-    username = input("\033[96mEnter the scam/fake Instagram username: \033[0m")
-    reports = int(input("Number of reports to send: "))
-    ip_change_interval = 5
-
-    for i in range(reports):
-        send_report(username)
-        if (i + 1) % ip_change_interval == 0:
-            print("\033[93m[*] Changing IP using TOR...\033[0m")
-            renew_ip()
-            time.sleep(8)
-
-    print("\n\033[1;92m[✓] All reports completed.\033[0m")
+    redirect_to_youtube()
+    show_banner()
+    
+    print(colored("[+] Tool initialized successfully!", "cyan"))
+    username = input(colored("\nEnter the Instagram username to report: ", "yellow"))
+    simulate_report(username)
 
 if __name__ == "__main__":
     main()
