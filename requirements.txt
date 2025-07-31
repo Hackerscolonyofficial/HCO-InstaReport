@@ -1,2 +1,2 @@
-requests
-stem
+instaloader
+termcolor
